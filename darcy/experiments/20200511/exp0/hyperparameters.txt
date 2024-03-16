@@ -1,0 +1,1 @@
+{'m': 35, 'n': 25, 'K': 9, 'ntest': 50, 'lamreg': 0, 'sig_plus': 0.08333333333333333, 'sig_minus': -0.3333333333333333, 'denom_scale': 0.1, 'rf_choice': 0, 'quad_order': 1}

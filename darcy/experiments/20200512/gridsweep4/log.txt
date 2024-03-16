@@ -1,0 +1,3 @@
+RUN SCRIPT for RFM grid sweep for Darcy equation.
+
+Running grid size s = 257

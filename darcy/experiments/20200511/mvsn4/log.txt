@@ -1,0 +1,43 @@
+RUN SCRIPT for RFM m vs n sweep for Darcy equation.
+
+
+ Outer loop, n = 5
+Inner loop, m = 512
+Expected relative test error: 0.09542072761954362
+Inner loop time elapsed:  420.79436707496643 seconds.
+
+ Outer loop, n = 10
+Inner loop, m = 512
+Expected relative test error: 0.05178994859930317
+Inner loop time elapsed:  431.6210436820984 seconds.
+
+ Outer loop, n = 20
+Inner loop, m = 512
+Expected relative test error: 0.04659765674720741
+Inner loop time elapsed:  465.9339463710785 seconds.
+
+ Outer loop, n = 30
+Inner loop, m = 512
+Expected relative test error: 0.045891078549546854
+Inner loop time elapsed:  507.8270206451416 seconds.
+
+ Outer loop, n = 50
+Inner loop, m = 512
+Expected relative test error: 0.042367387666453545
+Inner loop time elapsed:  594.1251285076141 seconds.
+
+ Outer loop, n = 100
+Inner loop, m = 512
+Expected relative test error: 0.04046125749152898
+Inner loop time elapsed:  800.8091263771057 seconds.
+
+ Outer loop, n = 300
+Inner loop, m = 512
+Expected relative test error: 0.03902735128838308
+Inner loop time elapsed:  1675.9172348976135 seconds.
+
+ Outer loop, n = 500
+Inner loop, m = 512
+Expected relative test error: 0.038091868341702126
+Inner loop time elapsed:  2275.2854323387146 seconds.
+Total Script Runtime:  7172.414376497269 seconds.

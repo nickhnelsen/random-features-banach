@@ -1,0 +1,1 @@
+{'m': 64, 'n': 128, 'K_list': [9, 17, 33, 65, 129], 'ntest': 1000, 'lamreg_init': 1e-08, 'sig_plus': 0.08333333333333333, 'sig_minus': -0.3333333333333333, 'denom_scale': 0.15, 'rf_choice': 0}

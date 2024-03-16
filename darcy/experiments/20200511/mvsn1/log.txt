@@ -1,0 +1,60 @@
+RUN SCRIPT for RFM m vs n sweep for Darcy equation.
+
+Outer loop, n = 5
+Inner loop, m = 8
+Expected relative test error: 0.35492625020131613
+Inner loop time elapsed:  32.27778744697571 seconds.
+Inner loop, m = 16
+Expected relative test error: 0.24950288870069365
+Inner loop time elapsed:  35.35937833786011 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.16457233082216732
+Inner loop time elapsed:  43.402952671051025 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.10289013409484841
+Inner loop time elapsed:  64.22230863571167 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.09891483441274966
+Inner loop time elapsed:  112.49009585380554 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.09265358161303869
+Inner loop time elapsed:  212.50948858261108 seconds.
+Outer loop, n = 10
+Inner loop, m = 8
+Expected relative test error: 0.3174685927479176
+Inner loop time elapsed:  27.62459373474121 seconds.
+Inner loop, m = 16
+Expected relative test error: 0.22421069094869508
+Inner loop time elapsed:  33.23607778549194 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.13465403044547802
+Inner loop time elapsed:  44.802698850631714 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.07414789170856585
+Inner loop time elapsed:  67.03641152381897 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.058153122875699355
+Inner loop time elapsed:  112.73564743995667 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.052489827096077385
+Inner loop time elapsed:  212.17416191101074 seconds.
+Outer loop, n = 20
+Inner loop, m = 8
+Expected relative test error: 0.3116548491662162
+Inner loop time elapsed:  28.089831590652466 seconds.
+Inner loop, m = 16
+Expected relative test error: 0.18729303549522067
+Inner loop time elapsed:  32.96281695365906 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.1265413746720968
+Inner loop time elapsed:  44.00027799606323 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.06518062351216945
+Inner loop time elapsed:  66.89558672904968 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.052198779917759563
+Inner loop time elapsed:  115.27928566932678 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.04764998713765411
+Inner loop time elapsed:  224.78767371177673 seconds.
+Total Script Runtime:  1510.0398318767548 seconds.

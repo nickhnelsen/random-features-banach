@@ -1,0 +1,15 @@
+RUN SCRIPT for tuning the RFM for Darcy equation.
+
+Running \lambda = 0.0
+Expected relative error (Train, Test): (0.034494606113136615, 0.04309725430243745)
+Running \lambda = 1e-07
+Expected relative error (Train, Test): (0.03834830388772543, 0.04093877408147098)
+Running \lambda = 1e-08
+Expected relative error (Train, Test): (0.035781482336914736, 0.03985072620648607)
+Running \lambda = 1e-09
+Expected relative error (Train, Test): (0.03478688469032599, 0.04071165818624182)
+Best penalty parameter is: 1e-08
+Time Elapsed:  3160.0244014263153 seconds.
+2-norm of coeff: 271.2704798091935 ; Max coeff: 46.579206823212715
+One test point relative error: 0.04125042211671299
+Total Script Runtime:  3183.50120139122 seconds.

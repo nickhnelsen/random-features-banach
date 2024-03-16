@@ -1,0 +1,6 @@
+RUN SCRIPT for RFM grid sweep for Darcy equation.
+
+Running grid size s = 9
+Training done...
+Expected relative error (Train, Test): (0.2531010073639861, 0.2528131958277967)
+Total Script Runtime:  39.77854084968567 seconds.

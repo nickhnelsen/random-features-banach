@@ -1,0 +1,41 @@
+RUN SCRIPT for RFM grid transfer sweep for Darcy equation.
+
+Training grid size K = 17
+Testing on grid size K = 9
+Expected relative test error: 0.09361445260698574
+Time Elapsed:  118.02998614311218 seconds.
+Testing on grid size K = 17
+Expected relative test error: 0.04416497886538085
+Time Elapsed:  145.59066033363342 seconds.
+Testing on grid size K = 33
+Expected relative test error: 0.0536599846041043
+Time Elapsed:  193.10088753700256 seconds.
+Testing on grid size K = 65
+Expected relative test error: 0.06268690502124612
+Time Elapsed:  476.1960141658783 seconds.
+Testing on grid size K = 129
+Expected relative test error: 0.06519734198823242
+Time Elapsed:  1522.200305223465 seconds.
+Testing on grid size K = 257
+Expected relative test error: 0.065850370451094
+Time Elapsed:  6846.117702722549 seconds.
+Training grid size K = 129
+Testing on grid size K = 9
+Expected relative test error: 0.13459127638035004
+Time Elapsed:  96.95583367347717 seconds.
+Testing on grid size K = 17
+Expected relative test error: 0.06887018685862191
+Time Elapsed:  115.44662022590637 seconds.
+Testing on grid size K = 33
+Expected relative test error: 0.04561264121920409
+Time Elapsed:  177.47780632972717 seconds.
+Testing on grid size K = 65
+Expected relative test error: 0.04202897997376833
+Time Elapsed:  436.41413617134094 seconds.
+Testing on grid size K = 129
+Expected relative test error: 0.04183382939062684
+Time Elapsed:  1422.159175157547 seconds.
+Testing on grid size K = 257
+Expected relative test error: 0.04180837449641995
+Time Elapsed:  6597.416694402695 seconds.
+Total Script Runtime:  18224.912121772766 seconds.
