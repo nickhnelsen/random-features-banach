@@ -1,0 +1,1 @@
+{'m': 512, 'n': 256, 'K': 257, 'ntest': 512, 'lamreg': 0.0, 'al_rf': 4, 'nu_rf': 0.0025, 'data_path': 'datasets/4/', 'quad_order': 1}

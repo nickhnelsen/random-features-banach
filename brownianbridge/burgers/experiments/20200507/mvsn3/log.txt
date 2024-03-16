@@ -1,0 +1,25 @@
+RUN SCRIPT for RFM m vs n sweep for Burgers equation.
+
+Outer loop, n = 1000
+Inner loop, m = 16
+Expected relative test error: 0.23967561791987615
+Inner loop time elapsed:  9.849653720855713 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.19634070690506825
+Inner loop time elapsed:  16.93768048286438 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.15066193736443861
+Inner loop time elapsed:  37.63728404045105 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.09354017612884744
+Inner loop time elapsed:  89.44077110290527 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.06157314601786132
+Inner loop time elapsed:  235.9109764099121 seconds.
+Inner loop, m = 512
+Expected relative test error: 0.04263020923236224
+Inner loop time elapsed:  755.9249424934387 seconds.
+Inner loop, m = 1024
+Expected relative test error: 0.030309696668998576
+Inner loop time elapsed:  2597.616082429886 seconds.
+Total Script Runtime:  3743.389274120331 seconds.

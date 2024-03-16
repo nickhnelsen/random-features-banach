@@ -1,0 +1,47 @@
+RUN SCRIPT for RFM m vs n sweep for Burgers equation.
+
+Outer loop, n = 10
+Inner loop, m = 16
+Expected relative test error: 0.24801191627128083
+Inner loop time elapsed:  8.93514895439148 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.20915661012790313
+Inner loop time elapsed:  11.463326692581177 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.18284124494326356
+Inner loop time elapsed:  23.752446174621582 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.13994541591425505
+Inner loop time elapsed:  47.413114070892334 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.1375922479326401
+Inner loop time elapsed:  93.1547520160675 seconds.
+Inner loop, m = 512
+Expected relative test error: 0.1279722844534077
+Inner loop time elapsed:  189.9610300064087 seconds.
+Inner loop, m = 1024
+Expected relative test error: 0.1279249509911925
+Inner loop time elapsed:  393.0472249984741 seconds.
+Outer loop, n = 100
+Inner loop, m = 16
+Expected relative test error: 0.23915100049105742
+Inner loop time elapsed:  5.984986782073975 seconds.
+Inner loop, m = 32
+Expected relative test error: 0.19173618940806214
+Inner loop time elapsed:  11.583481073379517 seconds.
+Inner loop, m = 64
+Expected relative test error: 0.14602169381144808
+Inner loop time elapsed:  23.275724172592163 seconds.
+Inner loop, m = 128
+Expected relative test error: 0.09429686391866172
+Inner loop time elapsed:  49.67290115356445 seconds.
+Inner loop, m = 256
+Expected relative test error: 0.06424389985539347
+Inner loop time elapsed:  106.38889193534851 seconds.
+Inner loop, m = 512
+Expected relative test error: 0.04656027099928387
+Inner loop time elapsed:  239.37090063095093 seconds.
+Inner loop, m = 1024
+Expected relative test error: 0.0376234238774044
+Inner loop time elapsed:  576.2408044338226 seconds.
+Total Script Runtime:  1780.3750200271606 seconds.

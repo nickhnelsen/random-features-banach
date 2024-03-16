@@ -1,0 +1,40 @@
+RUN SCRIPT for tuning the RFM for Burgers equation.
+
+Running \lambda = 0.0
+Expected relative error (Train, Test): (0.1033678138878885, 0.12244153023918998)
+Time Elapsed:  47.02218723297119 seconds.
+2-norm of coeff: 39.521949477175546 ; Max coeff: 20.692639234788658
+One test point relative error: 0.06822346457635428
+Total Script Runtime:  47.72214913368225 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=1e-3, al_rf=1.2, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1]
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+

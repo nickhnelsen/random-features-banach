@@ -1,0 +1,49 @@
+RUN SCRIPT for RFM grid sweep for Burgers equation.
+
+Running grid size K = 17
+Expected relative error (Train, Test): (0.0597372004255589, 0.06112467184426773)
+Running grid size K = 33
+Expected relative error (Train, Test): (0.06130655007729472, 0.06184742254359762)
+Running grid size K = 65
+Expected relative error (Train, Test): (0.06081062475712464, 0.061385931963109354)
+Running grid size K = 129
+Expected relative error (Train, Test): (0.0608264302010498, 0.061393197618814795)
+Running grid size K = 257
+Expected relative error (Train, Test): (0.06082239348551882, 0.06139689226186626)
+Running grid size K = 513
+Expected relative error (Train, Test): (0.06082181818981495, 0.061395829383404626)
+Running grid size K = 1025
+Expected relative error (Train, Test): (0.06082150677110163, 0.06139586735829585)
+Total Script Runtime:  1979.7902557849884 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=2.5e-3, al_rf=4, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1] # second GRF not needed
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+

@@ -1,0 +1,101 @@
+RUN SCRIPT for RFM grid transfer sweep for Burgers equation.
+
+Training grid size = 65
+Testing on grid size K = 17
+Expected relative test error: 0.06090147838491651
+Time Elapsed:  263.9937779903412 seconds.
+Testing on grid size K = 33
+Expected relative test error: 0.04052706549848988
+Time Elapsed:  266.88485312461853 seconds.
+Testing on grid size K = 65
+Expected relative test error: 0.03100779059566151
+Time Elapsed:  298.51251101493835 seconds.
+Testing on grid size K = 129
+Expected relative test error: 0.03213466181815277
+Time Elapsed:  353.94353771209717 seconds.
+Testing on grid size K = 257
+Expected relative test error: 0.03220207594501241
+Time Elapsed:  459.1468720436096 seconds.
+Testing on grid size K = 513
+Expected relative test error: 0.03220336307895585
+Time Elapsed:  691.5949728488922 seconds.
+Testing on grid size K = 1025
+Expected relative test error: 0.03220504439867097
+Time Elapsed:  1132.8164999485016 seconds.
+Training grid size = 257
+Testing on grid size K = 17
+Expected relative test error: 0.061710477266550254
+Time Elapsed:  260.80629897117615 seconds.
+Testing on grid size K = 33
+Expected relative test error: 0.03882954395287308
+Time Elapsed:  281.1831440925598 seconds.
+Testing on grid size K = 65
+Expected relative test error: 0.032750850762191745
+Time Elapsed:  297.2653787136078 seconds.
+Testing on grid size K = 129
+Expected relative test error: 0.031083825340483682
+Time Elapsed:  396.4049713611603 seconds.
+Testing on grid size K = 257
+Expected relative test error: 0.031018660638408302
+Time Elapsed:  550.2930355072021 seconds.
+Testing on grid size K = 513
+Expected relative test error: 0.03103236573972686
+Time Elapsed:  819.1645214557648 seconds.
+Testing on grid size K = 1025
+Expected relative test error: 0.031032968517654407
+Time Elapsed:  1326.2837481498718 seconds.
+Training grid size = 1025
+Testing on grid size K = 17
+Expected relative test error: 0.06131995215830086
+Time Elapsed:  304.0532581806183 seconds.
+Testing on grid size K = 33
+Expected relative test error: 0.03873923239234349
+Time Elapsed:  320.82042932510376 seconds.
+Testing on grid size K = 65
+Expected relative test error: 0.032734405636895135
+Time Elapsed:  320.5449938774109 seconds.
+Testing on grid size K = 129
+Expected relative test error: 0.0310728266675279
+Time Elapsed:  379.23952054977417 seconds.
+Testing on grid size K = 257
+Expected relative test error: 0.031016342591938053
+Time Elapsed:  495.5599219799042 seconds.
+Testing on grid size K = 513
+Expected relative test error: 0.03101848048702356
+Time Elapsed:  724.0735068321228 seconds.
+Testing on grid size K = 1025
+Expected relative test error: 0.031019128205276743
+Time Elapsed:  1111.2895097732544 seconds.
+Total Script Runtime:  11054.505758047104 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=2.5e-3, al_rf=4, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1] # second GRF not needed
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+

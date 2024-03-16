@@ -1,0 +1,171 @@
+RUN SCRIPT for RFM grid sweep for Burgers equation.
+
+Running grid size K = 17
+Training done...
+Expected relative error (Train, Test): (0.0009567716062276544, 0.3435929054700499)
+Running grid size K = 33
+Training done...
+Expected relative error (Train, Test): (0.01724132899891352, 0.04279903542557477)
+Running grid size K = 65
+Training done...
+Expected relative error (Train, Test): (0.018042507973799155, 0.04099707131234537)
+Running grid size K = 129
+Training done...
+Expected relative error (Train, Test): (0.017973349619749102, 0.041029472112539024)
+Running grid size K = 257
+Training done...
+Expected relative error (Train, Test): (0.017965471719147526, 0.0410388913193257)
+Running grid size K = 513
+Training done...
+Expected relative error (Train, Test): (0.017967048356552023, 0.04104154382207526)
+Running grid size K = 1025
+Training done...
+Expected relative error (Train, Test): (0.017967086132180336, 0.04104115264811521)
+Total Script Runtime:  5489.645948171616 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=2.5e-3, al_rf=4, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1] # second GRF not needed
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+
+.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+
+RUN SCRIPT for RFM grid sweep for Burgers equation.
+
+Running grid size K = 17
+Training done...
+Expected relative error (Train, Test): (0.018946746514941343, 0.041850411291424965)
+Running grid size K = 33
+Training done...
+Expected relative error (Train, Test): (0.021508428481274426, 0.03625229412329706)
+Running grid size K = 65
+Training done...
+Expected relative error (Train, Test): (0.021818515876000817, 0.035707031414597544)
+Running grid size K = 129
+Training done...
+Expected relative error (Train, Test): (0.02179418610948642, 0.03572137377432685)
+Running grid size K = 257
+Training done...
+Expected relative error (Train, Test): (0.021782957461519384, 0.03572303701239541)
+Running grid size K = 513
+Training done...
+Expected relative error (Train, Test): (0.02178333063458166, 0.03572496367379416)
+Running grid size K = 1025
+Training done...
+Expected relative error (Train, Test): (0.02178295068349669, 0.03572525307632069)
+Total Script Runtime:  7890.946791887283 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=2.5e-3, al_rf=4, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1] # second GRF not needed
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+
+RUN SCRIPT for RFM grid sweep for Burgers equation.
+
+Running grid size K = 17
+Training done...
+Expected relative error (Train, Test): (2.32922126779966e-10, 0.06819552287818847)
+Running grid size K = 33
+Training done...
+Expected relative error (Train, Test): (0.00029931696320083, 0.27174777116211185)
+Running grid size K = 65
+Training done...
+Expected relative error (Train, Test): (0.007353935520211735, 0.07156881915795592)
+Running grid size K = 129
+Training done...
+Expected relative error (Train, Test): (0.007218031631414851, 0.07124637955068205)
+Running grid size K = 257
+Training done...
+Expected relative error (Train, Test): (0.007207582565057456, 0.07128061108749915)
+Running grid size K = 513
+Training done...
+Expected relative error (Train, Test): (0.007208924036474259, 0.07128654300684255)
+Running grid size K = 1025
+Training done...
+Expected relative error (Train, Test): (0.007208752095855703, 0.07128264132596315)
+Total Script Runtime:  4283.192559957504 seconds.
+The choice of RF map is shown in the function defn. below:
+
+def rf_fourier(a, w, nu_rf=2.5e-3, al_rf=4, K_fine=1025):
+    ''' 
+    K_fine = 1 + 1024 # fine grid the input data is sampled from.
+    Activations: id, sin, relu, sawtooth, elu, selu
+    '''    
+    # Derived
+    w = w[:-1,:]
+    w1 = w[:,0]
+    # w2 = w[:,1] # second GRF not needed
+    N = a.shape[0] - 1
+    k = 2*np.pi*np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    
+    # # TEST
+    # inds = np.array([i for i in range(N//2)] + [N//2] + [ii for ii in range(-N//2 + 1,0)])
+    # k = 2*np.pi*inds
+    # k[np.abs(inds) > N//3 ] = 0
+ 
+    # Define mapping
+    # wave_func = (nu_rf*(np.abs(k)**al_rf)) * -1j*np.sign(k)   # add sawtooth activation filter maybe
+    # wave_func = sawtooth(nu_rf*np.abs(k)**al_rf)   # TEST
+    wave_func = act_filter(nu_rf*np.abs(k), al_rf)   # TEST
+    # wave_func = sawtooth(nu_rf*(15**2+np.abs(k)**2)**(al_rf/2)) # TEST
+    # aa = 1.2
+    # bb = 5e-3
+    # cc = 1
+    # wave_func = cc*sawtooth(bb*np.abs(k))**aa  # TEST
+
+    U = elu( (K_fine - 1)/N*np.real(ifft( wave_func*fft(w1)*fft(a[:-1]) )) )
+    return np.append(U, U[0])
+
