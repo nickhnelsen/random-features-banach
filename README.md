@@ -1,5 +1,5 @@
 # random-features-banach
-This repository contains the code associated with the journal articles "The Random Feature Model for Input-Output Maps between Banach Spaces" ([SIAM J. Sci. Comput., 43 (2021), pp. A3212–A3243](https://doi.org/10.1137/20M133957X)) and "Operator learning using random features: a tool for scientific computing" (to appear in SIAM Review, 2024). It implements the function-valued random features method for two operator learning benchmark problems: 1) the solution operator of 1D viscous Burgers' equation and 2) the solution operator of the 2D Darcy flow elliptic partial differential equation.
+This repository contains the code associated with the journal articles "The Random Feature Model for Input-Output Maps between Banach Spaces" ([SIAM J. Sci. Comput., Vol. 43, No. 5 (2021), pp. A3212–A3243](https://doi.org/10.1137/20M133957X)) and "Operator learning using random features: a tool for scientific computing" ([SIAM Review, Vol. 66, No. 3 (2024), pp. 535–571](https://doi.org/10.1137/24M1648703)). It implements the function-valued random features method for two operator learning benchmark problems: 1) the solution operator of 1D viscous Burgers' equation and 2) the solution operator of the 2D Darcy flow elliptic partial differential equation.
 
 > [!IMPORTANT]  
 > A more efficient and up-to-date GPU implementation of this code is available at:
@@ -28,19 +28,34 @@ Nelsen, N. H. & Stuart, A.M. (2024). Operator learning using random features: a 
 The main reference that explains the two benchmark problems is the paper ``[The Random Feature Model for Input-Output Maps between Banach Spaces](https://arxiv.org/abs/2005.10224)'' by Nicholas H. Nelsen and Andrew M. Stuart. Other relevant references include:
 - [Error Bounds for Learning with Vector-Valued Random Features](https://arxiv.org/abs/2305.17170)
 - [Fourier Neural Operator for Parametric Partial Differential Equations](https://arxiv.org/abs/2010.08895)
-- Operator learning using random features: a tool for scientific computing (to appear in SIAM Review)
+- [Operator learning using random features: a tool for scientific computing](https://doi.org/10.1137/24M1648703)
 
 ## Citing
-If you use `random-features-banach` in an academic paper, please cite the main reference ``The random feature model for input-output maps between Banach spaces'' as follows:
+If you use `random-features-banach` in an academic paper, please cite the main references as follows:
 ```
 @article{nelsen2021random,
   title={The random feature model for input-output maps between Banach spaces},
-  author={Nelsen, Nicholas H and Stuart, Andrew M},
+  author={Nelsen, Nicholas H. and Stuart, Andrew M.},
   journal={SIAM Journal on Scientific Computing},
   volume={43},
   number={5},
   pages={A3212--A3243},
   year={2021},
-  publisher={Society for Industrial and Applied Mathematics}
+  publisher={Society for Industrial and Applied Mathematics},
+  doi = {10.1137/20M133957X}
+}
+
+
+@article{nelsen2024operator,
+	title={Operator learning using random features: a tool for scientific computing},
+	author={Nelsen, Nicholas H. and Stuart, Andrew M.},
+	journal={SIAM Review},
+	volume={66},
+	number={3},
+	pages={535--571},
+	year={2024},
+	month={8},
+  publisher={Society for Industrial and Applied Mathematics},
+  doi={10.1137/24M1648703}
 }
 ```
